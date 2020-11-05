@@ -1,10 +1,8 @@
- var a = 7;
+ var a = 15;
  var b = 4;
- 
- while (a >= 0) {
-	a -= b
 
+ while (a >= b) {
+     a -= b
  }
- 
- console.log(a + b);
- 
+
+ console.log(a);
