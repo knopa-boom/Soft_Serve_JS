@@ -13,8 +13,8 @@ while (true) {
 
 var sum = 0;
 
-for (i = 0; num < length; i++) {
-    sum += Number(num[i]);
+for (i = 0; i < arr.length; i++) {
+    sum += Number(arr[i]);
 }
 
 console.log(sum);
