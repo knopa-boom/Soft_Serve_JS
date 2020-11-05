@@ -3,7 +3,7 @@ var arr = [];
 while (true) {
     var num = prompt('Введите целое число', '0');
 
-    if (num == '' || num == null) {
+    if (num == '' || num == null || isNaN(num)) {
         break;
     }
 
