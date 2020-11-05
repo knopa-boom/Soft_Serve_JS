@@ -1,9 +1,10 @@
-var a = prompt('Введите первое целое число', '');
-var b = prompt('Введите второе целое число', '');;
-var res;
+var a = 8;
+var b = 20;
+var sum = 0;
 
-for (var i = 0; a < b; i++) {
-    res = Number(a) + Number(b);
-    console.log(res);
-    break;
+
+for (var i = a; i <= b; i++) {
+    sum += i;
 }
+
+console.log(sum);
