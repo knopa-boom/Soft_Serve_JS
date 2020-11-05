@@ -3,7 +3,8 @@ var res = 1;
 
 for (var i = 1; i <= n; i++) {
 
-    res = i * res;
+    res *= i;
     console.log(res);
-    break;
 }
+
+console.log("Произведение " + res);
