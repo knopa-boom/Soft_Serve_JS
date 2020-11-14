@@ -18,7 +18,7 @@ function calc() {
     }
 
     arr[3] = function() {
-        return p = a + b;
+        return p = 2 * (a + b);
     }
 
     arr[4] = function() {
