@@ -7,14 +7,13 @@ function format(data, type) {
         format = function() {
             return Boolean(data);
         }
-    } else if (type == 'string') {
+    } else {
         format = function() {
             return String(data);
         }
-    } else {
-        return data;
     }
 }
+
 
 
 var originFormat = format;
