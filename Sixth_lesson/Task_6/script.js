@@ -5,9 +5,7 @@ var obj = {
 function isEmpty(obj) {
 
     for (var key in obj) {
-        if (key) {
-            return false
-        }
+        return false;
     }
 
     return true;
