@@ -1,17 +1,19 @@
+var p;
+var s;
+
 function calc() {
     var a = 0;
     var b = 0;
-    var p;
-    var s;
+
     var arr = [];
 
-    arr[0] = function inner(numFirst) {
+    arr[0] = function(numFirst) {
         if (numFirst > 0 && isNaN(numFirst) == false) {
             a = numFirst;
         }
     }
 
-    arr[1] = function inner2(numSecond) {
+    arr[1] = function(numSecond) {
         if (numSecond > 0 && isNaN(numSecond) == false) {
             b = numSecond;
         }
