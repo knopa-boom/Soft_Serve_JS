@@ -12,7 +12,7 @@ function calc(obj) {
     var count = 0;
 
     for (var key in obj) {
-        sum += salaries[key];
+        sum += obj[key];
         count++;
 
         middle = sum / count;
