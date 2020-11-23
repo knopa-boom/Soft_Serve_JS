@@ -1,6 +1,6 @@
 function bind(func, context) {
     return function() {
-        var res = func.call(context);
+        func.call(context);
     };
 }
 
