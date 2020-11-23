@@ -11,12 +11,13 @@ function format(beginMsg, endMsg) {
 
 // 1
 
-var tomFormat = function() {
-    format.call(user);
+var tomFormat = function(a, b) {
+    format.call(user, a, b);
 }
-tomFormat(); // "<<<Tom>>>"
+
+tomFormat("<<<", ">>>"); // "<<<Tom>>>"
 
 
-// 2
+2
 var tomFormat = format.bind(user);
 tomFormat("<<<", ">>>"); // "<<<Tom>>>"
