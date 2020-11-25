@@ -12,6 +12,8 @@ function Sum(firstNumber, secondNumber) {
     }
 
     this.res = 0;
+
+    this.__calc();
 }
 
 Sum.prototype.getFirstNumber = function() {
@@ -21,6 +23,7 @@ Sum.prototype.getFirstNumber = function() {
 Sum.prototype.setFirstNumber = function(value) {
     if (this.__numberValidator(value)) {
         this.__firstNumber = value;
+        this.__calc();
     }
 }
 
@@ -31,12 +34,12 @@ Sum.prototype.getSecondtNumber = function() {
 Sum.prototype.setSecondNumber = function(value) {
     if (this.__numberValidator(value)) {
         this.__secondNumber = value;
+        this.__calc();
     }
 }
 
 Sum.prototype.__calc = function() {
     this.res = this.__firstNumber + this.__secondNumber;
-    return this.res;
 }
 
 Sum.prototype.__numberValidator = function(value) {
@@ -48,10 +51,8 @@ Sum.prototype.__numberValidator = function(value) {
 }
 
 var sum = new Sum(4, 2);
-sum.__calc();
 console.log(sum.res)
 
 sum.setFirstNumber(2);
 sum.setSecondNumber(5);
-sum.__calc();
 console.log(sum.res)
