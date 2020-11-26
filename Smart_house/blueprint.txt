@@ -18,5 +18,4 @@
         off() : void
         increaseTempreature() : void
         decreaseTempreature() : void
-        isEmpty(stateOfWater) : void
         whatDrink() : void
