@@ -37,7 +37,7 @@ Audioplayer.prototype.__valueValidator = function(value) {
     };
 **/
 
-var audioplayer = new Audioplayer(20);
+var audioplayer = new Audioplayer(-2);
 audioplayer.getCurrentVolume();
 console.log(audioplayer.__currentVolume);
 audioplayer.setCurrentVolume(45);
