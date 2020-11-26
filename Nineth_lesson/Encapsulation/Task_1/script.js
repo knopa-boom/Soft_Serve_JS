@@ -17,7 +17,7 @@ Audioplayer.prototype.setCurrentVolume = function(value) {
 };
 
 Audioplayer.prototype.__valueValidator = function(value) {
-    if (typeof value === 'number' && value > 0 && value < 100) {
+    if (typeof value === 'number' && value >= 0 && value <= 100) {
         return true;
     } else {
         return false;
