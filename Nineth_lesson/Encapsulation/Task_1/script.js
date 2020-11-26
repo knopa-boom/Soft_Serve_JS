@@ -1,6 +1,4 @@
-function Audioplayer(name, currentVolume) {
-    this.name = name;
-    this.currentState = 'pause';
+function Audioplayer(currentVolume) {
     if (this.__valueValidator(currentVolume)) {
         this.__currentVolume = currentVolume;
     } else {
@@ -18,16 +16,8 @@ Audioplayer.prototype.setCurrentVolume = function(value) {
     }
 };
 
-Audioplayer.prototype.getCurrentState = function() {
-    return this.currentState;
-};
-
-Audioplayer.prototype.setCurrentState = function(string) {
-    this.currentState = string;
-};
-
 Audioplayer.prototype.__valueValidator = function(value) {
-    if (typeof value === 'number' && !isNaN(value) && value > 0 && value < 100) {
+    if (typeof value === 'number' && value > 0 && value < 100) {
         return true;
     } else {
         return false;
@@ -47,17 +37,12 @@ Audioplayer.prototype.__valueValidator = function(value) {
     };
 **/
 
-var audioplayer = new Audioplayer('aimp', 99);
-
-console.log(audioplayer.getCurrentState());
-
-audioplayer.setCurrentState('stop');
-console.log(audioplayer.currentState);
+var audioplayer = new Audioplayer(20);
+audioplayer.getCurrentVolume();
 console.log(audioplayer.__currentVolume);
-
-audioplayer.setCurrentVolume(23);
+audioplayer.setCurrentVolume(45);
+audioplayer.getCurrentVolume();
 console.log(audioplayer.__currentVolume);
-
 
 /* проверка для геттер-сеттер 
      audioplayer.currentVolume(26);
