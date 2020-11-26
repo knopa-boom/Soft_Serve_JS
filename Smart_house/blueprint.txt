@@ -10,9 +10,9 @@
         getName() : String
         getState() : Boolean
         getTempreature() : number
-        setTempreature(value) : Number
+        setTempreature(value: Number) : Number
         getDrink() : String
-        setDrink((value) : String
+        setDrink(value: String) : String
         getStateOfWater() : Boolean
         on() : void
         off() : void
