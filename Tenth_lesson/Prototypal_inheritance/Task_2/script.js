@@ -1,17 +1,11 @@
-function Square(a, b) {
+function Square(a) {
     if (this._numberValidator(a)) {
         this._a = a;
     } else {
         this._a = 0;
     }
 
-    if (this._numberValidator(b)) {
-        this._b = b;
-    } else {
-        this._b = 0;
-    }
-
-    this.res = 0;
+    this._res = 0;
     this.calcPerimeter();
 
 }
@@ -26,18 +20,12 @@ Square.prototype.setSideA = function(value) {
     }
 }
 
-Square.prototype.getSideB = function() {
-    return this._b;
-}
-
-Square.prototype.setSideB = function(value) {
-    if (this._numberValidator(value)) {
-        this._b = value;
-    }
+Square.prototype.getRes = function() {
+    return this._res;
 }
 
 Square.prototype.calcPerimeter = function() {
-    this.res = 2 * (this._a + this._b);
+    this._res = 4 * this._a;
 }
 
 Square.prototype._numberValidator = function(value) {
@@ -48,8 +36,6 @@ Square.prototype._numberValidator = function(value) {
     }
 }
 
-var square = new Square(4, 5);
-console.log('Периметр квадрата : ' + square.res)
 
 
 
@@ -62,18 +48,22 @@ Cube.prototype.constructor = Cube;
 
 // 1 способ
 Cube.prototype.calcPerimeter = function() {
-    this.res = 12 * this._a;
+    this._res = 12 * this._a;
 }
 
 // 2 способ
 Cube.prototype.calcPerimeter = function() {
     Square.prototype.calcPerimeter.call(this);
-    this.res *= 6;
+    this._res *= 6;
 }
 
+
+
+var square = new Square(4);
+console.log('Периметр квадрата : ' + square.getRes());
 
 var cube = new Cube(8);
 
 cube.setSideA(6);
 cube.calcPerimeter();
-console.log('Периметр куба: ' + cube.res);
+console.log('Периметр куба: ' + cube.getRes());
