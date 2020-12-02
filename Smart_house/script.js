@@ -87,3 +87,5 @@ console.log(teapot.getDrink(), teapot.getTempreature());
 
 teapot.setTempreature(100);
 console.log(teapot.getDrink(), teapot.getTempreature());
+
+teapot.on();
