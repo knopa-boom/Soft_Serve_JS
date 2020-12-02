@@ -12,10 +12,10 @@
         getTempreature() : number
         setTempreature(value: Number) : Number
         getDrink() : String
-        setDrink(value: String) : String
+        setDrink(value: String) : void
         getStateOfWater() : Boolean
         on() : void
         off() : void
         increaseTempreature() : void
         decreaseTempreature() : void
-        whatDrink() : void
+
