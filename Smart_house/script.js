@@ -19,7 +19,7 @@ Teapot.prototype.getTempreature = function() {
 }
 
 Teapot.prototype.setTempreature = function(value) {
-    if (this._tempValidator) {
+    if (this._tempValidator(value)) {
         switch (value) {
             case 80:
                 this._drink = 'green tea';
@@ -48,15 +48,19 @@ Teapot.prototype.setDrink = function(value) {
     switch (value) {
         case 'green tea':
             this._drink = 'green tea';
+            this._temperature = 80;
             break;
         case 'red tea':
             this._drink = 'red tea';
+            this._temperature = 95;
             break;
         case 'coffee':
             this._drink = 'coffee';
+            this._temperature = 90;
             break;
         case 'milk':
             this._drink = 'milk';
+            this._temperature = 75;
             break;
         default:
             this._drink = 'green tea';
@@ -93,8 +97,6 @@ Teapot.prototype._tempValidator = function(value) {
 }
 
 var teapot = new Teapot('MiJia ', false);
-teapot.setDrink('red tea');
-teapot.getDrink();
+teapot.setDrink('green tea');
 
-teapot.setTempreature(75);
-teapot.getTempreature();
+console.log(teapot.getDrink(), teapot.getTempreature());
