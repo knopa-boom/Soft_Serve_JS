@@ -18,4 +18,5 @@
         off() : void
         increaseTempreature() : void
         decreaseTempreature() : void
+        _tempValidator(value : Number) : Boolean
 
