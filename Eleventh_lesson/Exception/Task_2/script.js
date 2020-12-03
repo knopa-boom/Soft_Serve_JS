@@ -1,6 +1,6 @@
 function ifSumSliceArray(arr, first, second) {
     if (typeof first === 'number' && typeof second === 'number' && !isNaN(first) && !isNaN(second)) {
-        sumSliceArray(arr, first, second);
+        return sumSliceArray(arr, first, second);
     } else {
         console.log('data is incorrect');
     }
