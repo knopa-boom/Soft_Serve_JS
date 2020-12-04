@@ -1,5 +1,5 @@
 1) Умный чайник 
-2) класс Teapot
+2) класс Kettle
     состояние
         _name : String 
         _state : Boolean
@@ -20,3 +20,23 @@
         decreaseTempreature() : void
         _tempValidator(value : Number) : Boolean
 
+
+4) Умный теплый пол
+5) класс SmartFloor
+    состояние
+        _name : String
+        _state : Boolean
+        _temperature : number (0 - 30)
+        _light : String (blue , green, pink)
+    поведение
+        getName() : String
+        getState() : Boolean
+        getTempreature() : number
+        setTempreature(value: Number) : Number
+        getLight() : String
+        setLight (value : String) : String
+        on() : void
+        off() : void
+        increaseTempreature() : void
+        decreaseTempreature() : void
+        _tempValidator(value : Number) : Boolean
