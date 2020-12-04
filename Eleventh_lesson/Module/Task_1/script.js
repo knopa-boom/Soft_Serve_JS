@@ -4,16 +4,12 @@ var calcRectangle = (function() {
     var sideA = 5;
     var sideB = 7;
 
-
-    var resPer = 0;
-    var resSq = 0;
-
     function calcPer() {
-        return resPer = 2 * (sideA + sideB);
+        return 2 * (sideA + sideB);
     }
 
     function calcSquare() {
-        return resSq = sideA * sideB;
+        return sideA * sideB;
     }
 
     return {
