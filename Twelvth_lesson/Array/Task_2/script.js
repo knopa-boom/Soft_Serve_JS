@@ -1,7 +1,7 @@
 'use strict';
 
 Array.prototype.sortDesc = function() {
-    this.arr.sort();
+    this.sort().reverse();
 }
 
 var arr = [5, 1, 4, 2, 3];
