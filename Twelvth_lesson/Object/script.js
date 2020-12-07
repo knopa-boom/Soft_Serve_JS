@@ -8,7 +8,7 @@ function Rectangle(x1, y1, x2, y2) {
 }
 
 Rectangle.prototype.toString = function() {
-    return String(this.x1) + "," + String(this.x2) + "," + String(this.y1) + "," + String(this.y2);
+    return this.x1 + "," + this.x2 + "," + this.y1 + "," + this.y2;
 }
 
 Rectangle.prototype.valueOf = function() {
