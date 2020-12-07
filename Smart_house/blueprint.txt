@@ -32,9 +32,9 @@
         getName() : String
         getState() : Boolean
         getTempreature() : number
-        setTempreature(value: Number) : Number
+        setTempreature(value: Number) : void
         getLight() : String
-        setLight() (value : String) : String
+        setLight() (value : String) : void
         on() : void
         off() : void
         increaseTempreature() : void
