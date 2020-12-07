@@ -5,16 +5,14 @@ function Rectangle(x1, y1, x2, y2) {
     this.x2 = x2;
     this.y1 = y1;
     this.y2 = y2;
-    this.per;
-    this.state;
 }
 
 Rectangle.prototype.toString = function() {
-    return this.state = String(this.x1) + "," + String(this.x2) + "," + String(this.y1) + "," + String(this.y2);
+    return String(this.x1) + "," + String(this.x2) + "," + String(this.y1) + "," + String(this.y2);
 }
 
 Rectangle.prototype.valueOf = function() {
-    return this.per = this.x1 + this.x2 + this.y1 + this.y2;
+    return this.x1 + this.x2 + this.y1 + this.y2;
 }
 
 var rectangle = new Rectangle(1, 2, 3, 4);
