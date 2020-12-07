@@ -34,7 +34,7 @@
         getTempreature() : number
         setTempreature(value: Number) : Number
         getLight() : String
-        setLight (value : String) : String
+        setLight() (value : String) : String
         on() : void
         off() : void
         increaseTempreature() : void
