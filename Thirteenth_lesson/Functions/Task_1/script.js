@@ -1,11 +1,19 @@
 'use strict';
 
 function mul(...rest) {
-    rest.forEach(function(e) {
+    let tmp = 1;
+    let count = 0;
+
+    rest.forEach((e) => {
         if (typeof e === 'number') {
-            console.log(e *= e)
+            tmp *= e;
+            count++;
         }
     })
+
+    if (count == 0) return 0;
+
+    return tmp;
 }
 
 console.log(mul(1, "str", 2, 3, true)); // 6
