@@ -4,11 +4,11 @@ function mul(...rest) {
     let tmp = 1;
     let count = 0;
 
-    rest.forEach((e) => {
-        if (typeof e === 'number') {
-            tmp *= e;
-            count++;
-        }
+    let arrNums = rest.filter((e) => typeof(e) === 'number');
+
+    arrNums.forEach((e) => {
+        tmp *= e;
+        count++;
     })
 
     if (count == 0) return 0;
