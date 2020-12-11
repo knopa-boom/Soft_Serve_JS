@@ -174,14 +174,18 @@ SmartHouse.prototype.getDeviceByName = function(name) {
 }
 
 SmartHouse.prototype.deleteDeviceByName = function(name) {
-    console.log(this._devices.indexOf(name));
+
+    this._devices.forEach((e) => {
+        if (name == e.constructor.name) {
+            console.log(this._devices.indexOf(name));
+        }
+
+    });
 }
 
 SmartHouse.prototype.offAllDevice = function() {
 
 }
-
-
 
 
 var smartDevices = new SmartDevices('some device', false);
