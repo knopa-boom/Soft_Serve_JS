@@ -1,28 +1,75 @@
-function Kettle(name, state) {
+'use strict';
+/**
+ * 
+ * class SmartDevices
+ * 
+ */
+
+function SmartDevices(name, state) {
     this._name = name;
     this._state = state;
+    this._temperature = 80;
+}
+
+SmartDevices.prototype._tempValidator = function(value) {
+    if (typeof value === 'number' && !isNaN(value)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+SmartDevices.prototype.getName = function() {
+    return this._name;
+}
+
+SmartDevices.prototype.getState = function() {
+    return this._state;
+}
+
+SmartDevices.prototype.getTempreature = function() {
+    return this._temperature;
+}
+
+SmartDevices.prototype.setTempreature = function(value) {
+    if (this._tempValidator(value)) {
+        this._temperature = value;
+    }
+}
+
+SmartDevices.prototype.on = function() {
+    this._state = true;
+}
+
+SmartDevices.prototype.off = function() {
+    this._state = false;
+}
+
+SmartDevices.prototype.increaseTempreature = function() {
+    this._temperature++;
+}
+
+SmartDevices.prototype.decreaseTempreature = function() {
+    this._temperature--;
+}
+
+/**
+ * 
+ * class Kettle
+ * 
+ */
+
+function Kettle(name, state) {
+    SmartDevices.call(this, name, state)
+
     this._temperature = 80;
     this._drink = 'green tea';
     this._stateOfWater = true;
 }
 
-Kettle.prototype.getName = function() {
-    return this._name;
-}
+Kettle.prototype = Object.create(SmartDevices.prototype);
+Kettle.prototype.constructor = Kettle;
 
-Kettle.prototype.getState = function() {
-    return this._state;
-}
-
-Kettle.prototype.getTempreature = function() {
-    return this._temperature;
-}
-
-Kettle.prototype.setTempreature = function(value) {
-    if (this._tempValidator(value)) {
-        this._temperature = value;
-    }
-}
 
 Kettle.prototype.getDrink = function() {
     return this._drink;
@@ -56,54 +103,21 @@ Kettle.prototype.getStateOfWater = function() {
     return this._stateOfWater;
 }
 
-Kettle.prototype.on = function() {
-    this._state = true;
-}
-
-Kettle.prototype.off = function() {
-    this._state = false;
-}
-
-Kettle.prototype.increaseTempreature = function() {
-    this._temperature++;
-}
-
-Kettle.prototype.decreaseTempreature = function() {
-    this._temperature--;
-}
-
-Kettle.prototype._tempValidator = function(value) {
-    if (typeof value === 'number' && !isNaN(value)) {
-        return true;
-    } else {
-        return false;
-    }
-}
+/**
+ * 
+ * class SmartFloor
+ * 
+ */
 
 function SmartFloor(name, state) {
-    this._name = name;
-    this._state = state;
+
+    SmartDevices.call(this, name, state);
     this._temperature = 15;
     this._light = 'green';
 }
 
-SmartFloor.prototype.getName = function() {
-    return this._name;
-}
-
-SmartFloor.prototype.getState = function() {
-    return this._state;
-}
-
-SmartFloor.prototype.getTempreature = function() {
-    return this._temperature;
-}
-
-SmartFloor.prototype.setTempreature = function(value) {
-    if (this._tempValidator(value)) {
-        this._temperature = value;
-    }
-}
+SmartFloor.prototype = Object.create(SmartDevices.prototype);
+SmartFloor.constructor.name = SmartFloor;
 
 SmartFloor.prototype.getLight = function() {
     return this._light;
@@ -126,33 +140,58 @@ SmartFloor.prototype.setLight = function(value) {
     }
 }
 
-SmartFloor.prototype.on = function() {
-    this._state = true;
+/**
+ * 
+ * class SmartHouse
+ * 
+ */
+
+function SmartHouse(name, state) {
+    SmartDevices.call(this, name, state);
+    this._devices = [];
 }
 
-SmartFloor.prototype.off = function() {
-    this._state = false;
+SmartHouse.prototype = Object.create(SmartDevices.prototype);
+SmartHouse.constructor.name = SmartHouse;
+
+SmartHouse.prototype.getName = function() {
+    return this._name;
 }
 
-SmartFloor.prototype.increaseTempreature = function() {
-    this._temperature++;
+SmartHouse.prototype.addDevice = function(device) {
+    this._devices.push(device);
 }
 
-SmartFloor.prototype.decreaseTempreature = function() {
-    this._temperature--;
+SmartHouse.prototype.getDevices = function() {
+    return this._devices;
 }
 
-SmartFloor.prototype._tempValidator = function(value) {
-    if (typeof value === 'number' && !isNaN(value)) {
-        return true;
-    } else {
-        return false;
-    }
+SmartHouse.prototype.getDeviceByName = function(name) {
+    this._devices.forEach((e) => {
+
+        if (name == e.constructor.name) {
+            console.log(name);
+        }
+    });
+}
+
+SmartHouse.prototype.deleteDeviceByName = function(name) {
+
+}
+
+SmartHouse.prototype.offAllDevice = function() {
+
 }
 
 
+var smartDevices = new SmartDevices('some device', false);
 var kettle = new Kettle('MiJia ', false);
-
 var smartFloor = new SmartFloor('mi', true);
-smartFloor.setLight('pink');
-console.log(smartFloor.getLight());
+
+var sh = new SmartHouse("Name1");
+sh.addDevice(kettle);
+sh.addDevice(smartFloor);
+console.log(sh.getDevices());
+console.log(sh.getDeviceByName('SmartFloor'));
+// sh.getDeviceByName("kettle").on();
+// sh.offAllDevice();
