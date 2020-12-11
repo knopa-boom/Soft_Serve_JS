@@ -1,4 +1,3 @@
-'use strict';
 /**
  * 
  * class SmartDevices
@@ -140,19 +139,18 @@ SmartFloor.prototype.setLight = function(value) {
     }
 }
 
+
 /**
  * 
  * class SmartHouse
  * 
  */
 
-function SmartHouse(name, state) {
-    SmartDevices.call(this, name, state);
+
+function SmartHouse(name) {
+    this._name = name;
     this._devices = [];
 }
-
-SmartHouse.prototype = Object.create(SmartDevices.prototype);
-SmartHouse.constructor.name = SmartHouse;
 
 SmartHouse.prototype.getName = function() {
     return this._name;
@@ -175,18 +173,21 @@ SmartHouse.prototype.getDeviceByName = function(name) {
     });
 }
 
-SmartHouse.prototype.deleteDeviceByName = function(name) {
+// SmartHouse.prototype.deleteDeviceByName = function(name) {
 
-}
+// }
 
-SmartHouse.prototype.offAllDevice = function() {
+// SmartHouse.prototype.offAllDevice = function() {
 
-}
+// }
+
+
 
 
 var smartDevices = new SmartDevices('some device', false);
 var kettle = new Kettle('MiJia ', false);
 var smartFloor = new SmartFloor('mi', true);
+
 
 var sh = new SmartHouse("Name1");
 sh.addDevice(kettle);
