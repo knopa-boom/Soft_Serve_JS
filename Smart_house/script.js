@@ -116,7 +116,8 @@ function SmartFloor(name, state) {
 }
 
 SmartFloor.prototype = Object.create(SmartDevices.prototype);
-SmartFloor.constructor.name = SmartFloor;
+SmartFloor.prototype.constructor = SmartFloor;
+
 
 SmartFloor.prototype.getLight = function() {
     return this._light;
@@ -166,20 +167,19 @@ SmartHouse.prototype.getDevices = function() {
 
 SmartHouse.prototype.getDeviceByName = function(name) {
     this._devices.forEach((e) => {
-
         if (name == e.constructor.name) {
-            console.log(name);
+            console.log(e);
         }
     });
 }
 
-// SmartHouse.prototype.deleteDeviceByName = function(name) {
+SmartHouse.prototype.deleteDeviceByName = function(name) {
+    console.log(this._devices.indexOf(name));
+}
 
-// }
+SmartHouse.prototype.offAllDevice = function() {
 
-// SmartHouse.prototype.offAllDevice = function() {
-
-// }
+}
 
 
 
@@ -193,6 +193,8 @@ var sh = new SmartHouse("Name1");
 sh.addDevice(kettle);
 sh.addDevice(smartFloor);
 console.log(sh.getDevices());
-console.log(sh.getDeviceByName('SmartFloor'));
-// sh.getDeviceByName("kettle").on();
+console.log(sh.getDeviceByName('Kettle'));
+console.log(sh.deleteDeviceByName('SmartFloor'));
+
+// sh.getDeviceByName("Kettle").on();
 // sh.offAllDevice();
