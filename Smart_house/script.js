@@ -167,13 +167,14 @@ SmartHouse.prototype.getDevices = function() {
 
 SmartHouse.prototype.getDeviceByName = function(name) {
     this._devices.forEach((e) => {
-        if (name === e._name) {
+        if (name === e.getName()) {
             return e;
         }
     });
 }
 
 SmartHouse.prototype.deleteDeviceByName = function(name) {
+
 
 }
 
@@ -182,6 +183,9 @@ SmartHouse.prototype.offAllDevice = function() {
 }
 
 
+// var smartDevices = new SmartDevices('some device', false);
+// var kettle = new Kettle('MiJia ', false);
+// var smartFloor = new SmartFloor('mi', true);
 
 
 var sh = new SmartHouse("Home");
