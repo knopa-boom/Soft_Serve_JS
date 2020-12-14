@@ -2,33 +2,33 @@
 
 let mp3 = {
     _name: 'Hi-Fi_mini',
-    volumeState: 3,
-    currentTrack: 7,
-    state: 'off',
-    format: ['mp3', 'wav', 'wma'],
+    _volumeState: 3,
+    _currentTrack: 7,
+    _state: 'off',
+    _format: ['mp3', 'wav', 'wma'],
 
     get name() {
         return this._name;
     },
 
     set state(str) {
-        this.state = str;
+        this._state = str;
     },
 
     get state() {
-        return this.state;
+        return this._state;
     },
 
     play() {
-        this.state = 'on';
+        this._state = 'on';
     },
 
     pause() {
-        this.state = 'pause';
+        this._state = 'pause';
     },
 
     stop() {
-        this.state = 'stop';
+        this._state = 'stop';
     },
 
     nextTrack() {
