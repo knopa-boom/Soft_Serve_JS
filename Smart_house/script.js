@@ -166,27 +166,36 @@ SmartHouse.prototype.getDevices = function() {
 }
 
 SmartHouse.prototype.getDeviceByName = function(name) {
+    let temp;
     this._devices.forEach((e) => {
         if (name === e.getName()) {
-            return e;
+            temp = e;
         }
     });
+
+    return temp;
 }
 
 SmartHouse.prototype.deleteDeviceByName = function(name) {
+    let temp;
+    this._devices.forEach((e) => {
+        if (name === e.getName()) {
+            temp = e;
+        }
+    });
+
+    this._devices.pop(temp);
+    return this._devices;
 
 
 }
 
 SmartHouse.prototype.offAllDevice = function() {
+    this._devices.forEach((e) => {
+        e.off();
+    });
 
 }
-
-
-// var smartDevices = new SmartDevices('some device', false);
-// var kettle = new Kettle('MiJia ', false);
-// var smartFloor = new SmartFloor('mi', true);
-
 
 var sh = new SmartHouse("Home");
 sh.addDevice(new Kettle("Чайник"))
@@ -194,7 +203,7 @@ sh.addDevice(new SmartFloor("Теплый пол"))
 
 console.log(sh.getDevices());
 console.log(sh.getDeviceByName("Чайник"));
-// console.log(sh.deleteDeviceByName('SmartFloor'));
+console.log(sh.deleteDeviceByName('Теплый пол'));
 
-// sh.getDeviceByName("Kettle").on();
-// sh.offAllDevice();
+sh.getDeviceByName("Чайник").on();
+sh.offAllDevice();
