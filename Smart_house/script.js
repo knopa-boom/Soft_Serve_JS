@@ -1,3 +1,4 @@
+'use strict';
 /**
  * 
  * class SmartDevices
@@ -10,13 +11,9 @@ function SmartDevices(name, state) {
     this._temperature = 80;
 }
 
-SmartDevices.prototype._tempValidator = function(value) {
-    if (typeof value === 'number' && !isNaN(value)) {
-        return true;
-    } else {
-        return false;
-    }
-}
+
+
+
 
 SmartDevices.prototype.getName = function() {
     return this._name;
@@ -31,7 +28,7 @@ SmartDevices.prototype.getTempreature = function() {
 }
 
 SmartDevices.prototype.setTempreature = function(value) {
-    if (this._tempValidator(value)) {
+    if (typeof value === 'number' && !isNaN(value)) {
         this._temperature = value;
     }
 }
