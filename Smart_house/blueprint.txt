@@ -18,8 +18,6 @@
         off() : void
         increaseTempreature() : void
         decreaseTempreature() : void
-        _tempValidator(value : Number) : Boolean
-
 
 4) Умный теплый пол
 5) класс SmartFloor
@@ -32,11 +30,10 @@
         getName() : String
         getState() : Boolean
         getTempreature() : number
-        setTempreature(value: Number) : void
+        setTempreature(value: Number) : Number
         getLight() : String
-        setLight(value : String) : void
+        setLight (value : String) : String
         on() : void
         off() : void
         increaseTempreature() : void
         decreaseTempreature() : void
-        _tempValidator(value : Number) : Boolean
