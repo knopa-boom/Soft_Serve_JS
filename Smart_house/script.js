@@ -12,9 +12,6 @@ function SmartDevices(name, state) {
 }
 
 
-
-
-
 SmartDevices.prototype.getName = function() {
     return this._name;
 }
