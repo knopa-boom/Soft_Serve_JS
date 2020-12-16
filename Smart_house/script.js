@@ -140,13 +140,11 @@ SmartFloor.prototype.setLight = function(value) {
     }
 }
 
-
 /**
  * 
  * class SmartHouse
  * 
  */
-
 
 function SmartHouse(name) {
     this._name = name;
@@ -174,18 +172,19 @@ SmartHouse.prototype.getDeviceByName = function(name) {
     });
 
     return temp;
+
 }
 
 SmartHouse.prototype.deleteDeviceByName = function(name) {
-    let temp;
-    this._devices.forEach((e) => {
+
+    let array = this._devices;
+    this._devices.forEach((e, i) => {
         if (name === e.getName()) {
-            temp = e;
+            array.splice(i, 1)
         }
     });
 
-    this._devices.pop(temp);
-    return this._devices;
+    return array;
 
 
 }
@@ -203,7 +202,9 @@ sh.addDevice(new SmartFloor("Теплый пол"))
 
 console.log(sh.getDevices());
 console.log(sh.getDeviceByName("Чайник"));
-console.log(sh.deleteDeviceByName('Теплый пол'));
+console.log(sh.getDeviceByName("Теплый пол"));
+
+console.log(sh.deleteDeviceByName("Теплый пол"));
 
 sh.getDeviceByName("Чайник").on();
 sh.offAllDevice();
