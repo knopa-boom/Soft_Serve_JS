@@ -169,14 +169,11 @@ class SmartHouse {
     }
 
     deleteDeviceByName(name) {
-        let array = this._devices;
         this._devices.forEach((e, i) => {
             if (name === e.name) {
                 array.splice(i, 1)
             }
         });
-
-        return array;
     }
 
     offAllDevice() {
