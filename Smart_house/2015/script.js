@@ -58,7 +58,6 @@ class SmartDevices {
 class Kettle extends SmartDevices {
     constructor(name, state) {
         super(name, state);
-
         this._temperature = 80;
         this._drink = 'green tea';
         this._stateOfWater = true;
@@ -86,9 +85,6 @@ class Kettle extends SmartDevices {
                 this._drink = 'milk';
                 this._temperature = 75;
                 break;
-            default:
-                this._drink = 'green tea';
-                break;
         }
     }
 
@@ -106,7 +102,6 @@ class Kettle extends SmartDevices {
 class SmartFloor extends SmartDevices {
     constructor(name, state) {
         super(name, state);
-
         this._temperature = 15;
         this._light = 'green';
     }
@@ -164,22 +159,22 @@ class SmartHouse {
                 temp = e;
             }
         });
-
         return temp;
     }
 
     deleteDeviceByName(name) {
+        let array = this._devices;
         this._devices.forEach((e, i) => {
             if (name === e.name) {
                 array.splice(i, 1)
             }
         });
+
+        return array;
     }
 
     offAllDevice() {
-        this._devices.forEach((e) => {
-            e.off();
-        });
+        this._devices.forEach(e => e.off());
     }
 }
 
