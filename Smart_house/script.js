@@ -171,15 +171,11 @@ SmartHouse.prototype.getDeviceByName = function(name) {
 
 SmartHouse.prototype.deleteDeviceByName = function(name) {
 
-    let array = this._devices;
     this._devices.forEach((e, i) => {
         if (name === e.getName()) {
-            array.splice(i, 1)
+            this._devices.splice(i, 1)
         }
     });
-
-    return array;
-
 
 }
 
