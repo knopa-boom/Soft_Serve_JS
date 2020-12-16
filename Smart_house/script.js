@@ -11,7 +11,6 @@ function SmartDevices(name, state) {
     this._temperature = 80;
 }
 
-
 SmartDevices.prototype.getName = function() {
     return this._name;
 }
@@ -54,7 +53,6 @@ SmartDevices.prototype.decreaseTempreature = function() {
 
 function Kettle(name, state) {
     SmartDevices.call(this, name, state)
-
     this._temperature = 80;
     this._drink = 'green tea';
     this._stateOfWater = true;
@@ -62,7 +60,6 @@ function Kettle(name, state) {
 
 Kettle.prototype = Object.create(SmartDevices.prototype);
 Kettle.prototype.constructor = Kettle;
-
 
 Kettle.prototype.getDrink = function() {
     return this._drink;
@@ -86,9 +83,6 @@ Kettle.prototype.setDrink = function(value) {
             this._drink = 'milk';
             this._temperature = 75;
             break;
-        default:
-            this._drink = 'green tea';
-            break;
     }
 }
 
@@ -103,7 +97,6 @@ Kettle.prototype.getStateOfWater = function() {
  */
 
 function SmartFloor(name, state) {
-
     SmartDevices.call(this, name, state);
     this._temperature = 15;
     this._light = 'green';
@@ -111,7 +104,6 @@ function SmartFloor(name, state) {
 
 SmartFloor.prototype = Object.create(SmartDevices.prototype);
 SmartFloor.prototype.constructor = SmartFloor;
-
 
 SmartFloor.prototype.getLight = function() {
     return this._light;
@@ -164,26 +156,21 @@ SmartHouse.prototype.getDeviceByName = function(name) {
             temp = e;
         }
     });
-
     return temp;
-
 }
 
 SmartHouse.prototype.deleteDeviceByName = function(name) {
-
     this._devices.forEach((e, i) => {
         if (name === e.getName()) {
             this._devices.splice(i, 1)
         }
     });
-
 }
 
 SmartHouse.prototype.offAllDevice = function() {
     this._devices.forEach((e) => {
         e.off();
     });
-
 }
 
 var sh = new SmartHouse("Home");
