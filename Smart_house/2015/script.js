@@ -58,6 +58,7 @@ class SmartDevices {
 class Kettle extends SmartDevices {
     constructor(name, state) {
         super(name, state);
+
         this._temperature = 80;
         this._drink = 'green tea';
         this._stateOfWater = true;
@@ -85,6 +86,9 @@ class Kettle extends SmartDevices {
                 this._drink = 'milk';
                 this._temperature = 75;
                 break;
+            default:
+                this._drink = 'green tea';
+                break;
         }
     }
 
@@ -102,6 +106,7 @@ class Kettle extends SmartDevices {
 class SmartFloor extends SmartDevices {
     constructor(name, state) {
         super(name, state);
+
         this._temperature = 15;
         this._light = 'green';
     }
@@ -159,24 +164,42 @@ class SmartHouse {
                 temp = e;
             }
         });
+
         return temp;
     }
 
     deleteDeviceByName(name) {
-        let array = this._devices;
         this._devices.forEach((e, i) => {
             if (name === e.name) {
                 array.splice(i, 1)
             }
         });
-
-        return array;
     }
 
     offAllDevice() {
         this._devices.forEach(e => e.off());
     }
-}
+
+    delayedOff(name, delay, callback) {
+
+        let data;
+        let err;
+
+
+        this._devices.forEach((e) => {
+            if (name === e.name) {
+                e.off();
+                data = 'ус-во выключено'
+            } else {
+                err = new Error('Invalid parameters');
+            }
+            setTimeout(() => {
+                callback(err, data);
+            }, delay);
+        });
+
+    };
+};
 
 const sh = new SmartHouse("Home");
 sh.addDevice(new Kettle("Чайник"))
@@ -186,7 +209,15 @@ console.log(sh.devices);
 console.log(sh.getDeviceByName("Чайник"));
 console.log(sh.getDeviceByName("Теплый пол"));
 
-console.log(sh.deleteDeviceByName("Теплый пол"));
+// console.log(sh.deleteDeviceByName("Теплый пол"));
 
-sh.getDeviceByName("Чайник").on();
-sh.offAllDevice();
+// sh.getDeviceByName("Теплый пол").on();
+// sh.offAllDevice();
+
+sh.delayedOff('Теплый пол', 2000, (err, data) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
