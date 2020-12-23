@@ -181,11 +181,9 @@ class SmartHouse {
     }
 
     delayedOff(name, delay, callback) {
-
         let data;
         let err;
-
-
+        
         this._devices.forEach((e) => {
             if (name === e.name) {
                 e.off();
@@ -197,7 +195,6 @@ class SmartHouse {
                 callback(err, data);
             }, delay);
         });
-
     };
 };
 
