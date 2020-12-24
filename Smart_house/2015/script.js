@@ -186,12 +186,12 @@ class SmartHouse {
         let err;
 
         setTimeout(() => {
-            this._devices.forEach((e) => {
-                if (name === e.name) {
-                    e.off();
-                    data = 'ус-во выключено';
+            this._devices.find((item) => {
+                if (item.name === name) {
+                    item.off();
+                    return data = 'ус-во выключено';
                 } else {
-                    err = new Error('Invalid parameters');
+                    return err = new Error('Invalid parameters');
                 }
             })
 
