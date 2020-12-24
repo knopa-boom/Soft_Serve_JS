@@ -181,20 +181,19 @@ class SmartHouse {
     }
 
     delayedOff(name, delay, callback) {
-
         let data;
         let err;
+        let tmp;
 
         setTimeout(() => {
             this._devices.find((item) => {
                 if (item.name === name) {
-                    item.off();
-                    return data = 'ус-во выключено';
-                } else {
-                    return err = new Error('Invalid parameters');
+                    tmp = item;
+                    return tmp;
                 }
             })
 
+            tmp.off();
             callback(err, data);
         }, delay);
     };
