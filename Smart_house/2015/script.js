@@ -181,20 +181,22 @@ class SmartHouse {
     }
 
     delayedOff(name, delay, callback) {
+
         let data;
         let err;
-        
-        this._devices.forEach((e) => {
-            if (name === e.name) {
-                e.off();
-                data = 'ус-во выключено'
-            } else {
-                err = new Error('Invalid parameters');
-            }
-            setTimeout(() => {
-                callback(err, data);
-            }, delay);
-        });
+
+        setTimeout(() => {
+            this._devices.forEach((e) => {
+                if (name === e.name) {
+                    e.off();
+                    data = 'ус-во выключено';
+                } else {
+                    err = new Error('Invalid parameters');
+                }
+            })
+
+            callback(err, data);
+        }, delay);
     };
 };
 
