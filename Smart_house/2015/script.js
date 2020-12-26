@@ -189,7 +189,9 @@ class SmartHouse {
             tmp = this._devices.find(item => item.name === name);
 
             if (tmp) {
+                tmp.off();
                 data = 'Устройство выключено';
+
             } else {
                 err = new Error('Incorrect parameters');
             }
