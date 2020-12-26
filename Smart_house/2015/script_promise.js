@@ -174,7 +174,7 @@ class SmartHouse {
                 array.splice(i, 1)
             }
         });
-    }
+    };
 
     offAllDevice() {
         this._devices.forEach(e => e.off());
@@ -206,6 +206,7 @@ class SmartHouse {
             setTimeout(() => {
                 tmp = this._devices.find(item => item.name === name);
                 if (tmp) {
+                    tmp.off();
                     resolve('Устройство выключено');
                 } else {
                     reject(new Error('Incorrect parameters'));
