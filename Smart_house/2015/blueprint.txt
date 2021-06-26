@@ -1,0 +1,52 @@
+1) Умный чайник
+2) class Kettle
+    state
+        _name: String
+        _state: Boolean
+        _temperature: Number (0-100)
+        _drink: String
+        _stateOfWater: Boolean
+    behaviour
+        constructor(name: String, state: Boolean)
+        get name() : String
+        get state() : Boolean
+        get temperature() : Number
+        set temperature(value:Number) : void
+        on() : void
+        off() : void
+        increaseTempreature() : void
+        decreaseTempreature() : void
+
+4) Умный теплый пол
+5) class SmartFloor
+    state
+        _name : String
+        _state : Boolean
+        _temperature : number (0 - 30)
+        _light : String (blue , green, pink)
+    behaviour
+        constructor(name: String, state: Boolean)
+        get name() : String
+        get state() : Boolean
+        get temperature() : Number
+        set temperature(value:Number) : void
+        get light() : String
+        set light(value: String) : void
+        on() : void
+        off() : void
+        increaseTempreature() : void
+        decreaseTempreature() : void
+8. Чертеж класса Дом
+   класс SmartHouse
+      state
+         _name: String
+         _devices: [Object] 
+      behaviour
+	 constructor(name: String)
+        get name(): String
+        addDevice(device: Object): void
+        get devices(): [Object]
+        getDeviceByName(name: String): Object
+        deleteDeviceByNamename: Stringvoid
+        offAllDevice(): void
+        delayedOff(name: String, delay: Number, callback: function): void
